@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@900&family=Montserrat:wght@900&display=swap');
+
+.course {
+	background: linear-gradient(
+		-45deg,
+		rgba(129, 198, 255, 0.8),
+		rgba(229, 242, 255, 0.8)
+	);
+	backdrop-filter: blur(10px);
+	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 36px;
+	font-weight: 900;
+	font-family: 'Montserrat', sans-serif;
+	gap: 18px 0;
+
+	.course-title {
+		display: flex;
+		align-items: center;
+		height: 72px;
+
+		.course-title-text {
+			margin-left: -4px;
+			font-family: 'Montserrat Alternates', sans-serif;
+			color: #112d48;
+			font-size: 21px;
+		}
+	}
+
+	.course-descr {
+		font-size: 18px;
+		line-height: 24px;
+		color: #104386;
+	}
+
+	.course-duration {
+		color: #112d48;
+		margin-bottom: 18px;
+	}
+
+	.course-btn {
+		color: #ffffff;
+		background-color: rgba(43, 117, 192, 0.8);
+		padding: 0 36px;
+		line-height: 36px;
+		border-radius: 18px;
+		display: block;
+		margin: 0 auto;
+		width: fit-content;
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+		z-index: 10;
+		backdrop-filter: blur(5px);
+	}
+}
