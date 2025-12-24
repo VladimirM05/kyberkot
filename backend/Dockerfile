@@ -1,19 +1,17 @@
-# Используем Python 3.14
-FROM python:3.14-slim
+FROM python:3.12-slim
 
-# Устанавливаем рабочую папку
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
 WORKDIR /app
 
-# Копируем файлы проекта
-COPY . /app/
+# Сначала dependencies (для кеша Docker)
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Устанавливаем зависимости
-COPY requirements.txt /app/
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Потом копируем весь проект
+COPY . .
 
-# Открываем порт для сервера
 EXPOSE 8000
 
-# Команда по умолчанию
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

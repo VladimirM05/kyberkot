@@ -1,35 +1,32 @@
-"""Админка Course."""
+"""Админка CourseTheme."""
 
-from api.models import Course
 from django.contrib import admin
 
-@admin.register(Course)
-class CourseAdmin(admin.ModelAdmin):
-    """Настройка отображения модели Course в админке."""
+from api.models.course_theme import CourseTheme
+
+
+@admin.register(CourseTheme)
+class CourseThemeAdmin(admin.ModelAdmin):
+    """Настройка отображения CourseTheme."""
 
     list_display = (
         "id",
-        "user",
+        "course",
+        "order",
         "name",
-        "price",
-        "is_free",
-        "difficulty",
         "is_deleted",
         "created_at",
     )
 
     list_filter = (
-        "user",
-        "is_free",
-        "difficulty",
+        "course",
         "is_deleted",
         "created_at",
     )
 
     search_fields = (
-        "user__username",
         "name",
-        "description",
+        "course__name",
     )
 
     fieldsets = (
@@ -37,13 +34,9 @@ class CourseAdmin(admin.ModelAdmin):
             "Основная информация",
             {
                 "fields": (
-                    "user",
+                    "course",
                     "name",
-                    "description",
-                    "price",
-                    "is_free",
-                    "duration",
-                    "difficulty",
+                    "order",
                 ),
             },
         ),
@@ -60,6 +53,11 @@ class CourseAdmin(admin.ModelAdmin):
         ),
     )
 
-    ordering = ("-created_at",)
+    ordering = ("course", "order")
     date_hierarchy = "created_at"
-    readonly_fields = ("id", "updated_at", "created_at", "deleted_at")
+    readonly_fields = (
+        "id",
+        "updated_at",
+        "created_at",
+        "deleted_at",
+    )

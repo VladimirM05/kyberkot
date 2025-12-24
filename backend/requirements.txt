@@ -1,2 +1,6 @@
-Django>=5.1
+Django
 psycopg[binary]
+Pillow
+django-jazzmin
+graphene-django
+django-cors-headers>=4.0.0

@@ -1,13 +1,21 @@
 """Содержит модель курса."""
 
+from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from api.enums.course_difficulty import CourseDifficulty
 
-
 class Course(models.Model):
     """Хранит информацию о курсе."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="user_courses",
+        verbose_name=_("Пользователь"),
+    )
 
     name = models.CharField(max_length=128, verbose_name=_("Название"))
 

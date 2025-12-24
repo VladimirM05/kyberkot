@@ -1,0 +1,31 @@
+services:                               # Раздел с описанием сервисов (контейнеров)
+  db:                                   # Сервис базы данных с именем db
+    image: postgres:16                  # Используется официальный образ PostgreSQL версии 16
+    restart: always                     # Контейнер автоматически перезапускается при сбое или рестарте Docker
+    environment:                        # Переменные окружения для контейнера PostgreSQL
+      POSTGRES_DB: mydb                 # Имя создаваемой базы данных
+      POSTGRES_USER: admin              # Имя пользователя PostgreSQL
+      POSTGRES_PASSWORD: 111            # Пароль пользователя PostgreSQL
+    ports:
+      - "5433:5432"                     # Проброс порта: 5433 на хосте → 5432 в контейнере
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Том для хранения данных БД (сохраняются при перезапуске)
+
+  web:                                  # Сервис веб-приложения (Django)
+    build: .                            # Сборка образа из Dockerfile в текущей директории
+    command: python manage.py runserver 0.0.0.0:8000  # Запуск Django-сервера, доступного извне контейнера
+    volumes:
+      - ./app:/app                         # Монтирование текущей папки проекта в контейнер
+    ports:
+      - "8000:8000"                     # Проброс порта: 8000 на хосте → 8000 в контейнере
+    depends_on:
+      - db                              # Гарантирует запуск сервиса db перед web
+    environment:                        # Переменные окружения для Django-приложения
+      - DEBUG=1                         # Включение режима отладки Django
+      - DJANGO_DB_HOST=db               # Хост базы данных (имя сервиса PostgreSQL)
+      - DJANGO_DB_USER=admin            # Пользователь базы данных
+      - DJANGO_DB_NAME=mydb             # Имя базы данных
+      - DJANGO_DB_PASSWORD=111          # Пароль базы данных
+
+volumes:
+  pgdata:                               # Объявление именованного тома для данных PostgreSQL
