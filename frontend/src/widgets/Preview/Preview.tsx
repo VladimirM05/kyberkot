@@ -1,21 +1,20 @@
 import { FC } from 'react';
 import preview from '../../app/assets/images/preview.png';
 import cat from '../../app/assets/images/cat.png';
-import Logo from '../../app/assets/images/preview-logo.svg';
+import logoImg from '../../app/assets/images/preview-logo.svg';
 import styles from './preview.module.pcss';
+import {NavLink} from "react-router-dom";
 
 
 export const Preview: FC = () => {
 	return (
 		<section
-			className={styles.preview
-				
-			}
+			className={styles.preview}
 			style={{ backgroundImage: `url(${preview})` }}
 		>
 			<div className="container">
 				<div className={styles['preview-inner']}>
-					<Logo className={styles['preview-logo-img']} />
+					<img className={styles['logo-img']} src={logoImg} alt="Иконка сайта"/>
 					<h1 className={styles['preview-title']}>
 						Погрузись в мир кибербезопасности
 					</h1>
@@ -26,9 +25,9 @@ export const Preview: FC = () => {
 						<br />
 						КиберКотом!
 					</span>
-					<a className={styles['start-course-btn']} href="!#">
+					<NavLink className={styles['start-course-btn']} to="courses/">
 						Начать обучение
-					</a>
+					</NavLink>
 				</div>
 			</div>
 			<img className={styles.cat} src={cat} alt="Кошечка" />

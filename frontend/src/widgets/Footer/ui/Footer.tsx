@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Logo } from '../../../shared/Logo';
-import Telegram from '../../../app/assets/images/tg.svg'
-import Vkontakte from '../../../app/assets/images/vk.svg'
+import tg from '../../../app/assets/images/tg.svg'
+import vk from '../../../app/assets/images/vk.svg'
 import styles from './footer.module.pcss';
 
 
@@ -27,11 +27,11 @@ export const Footer: FC = () => {
 						Мы здесь если есть вопросы
 					</span>
 					<div className={styles.socials}>
-						<a className={styles['social-link']} href="!#">
-							<Telegram />
+						<a className={styles['social-link']} href="#">
+							<img className={styles['social-link-tg']} src={tg} alt="Телеграм"/>
 						</a>
-						<a className={styles['social-link']} href="!#">
-							<Vkontakte />
+						<a className={styles['social-link']} href="#">
+							<img className={styles['social-link-vk']} src={vk} alt="ВКонтакте"/>
 						</a>
 					</div>
 				</div>

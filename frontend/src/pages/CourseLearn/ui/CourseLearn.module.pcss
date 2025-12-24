@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@900&family=Montserrat:wght@900&display=swap');
+
+.course {
+    min-height: 100vh;
+    padding-top: 96px;
+    background: linear-gradient(
+            -45deg,
+            rgba(129, 198, 255, 0.25),
+            rgba(229, 242, 255, 0.45)
+    );
+    font-family: 'Montserrat', sans-serif;
+    color: #112d48;
+    display: flex;
+    flex-direction: column;
+
+    /* Контейнер внутри course */
+    :global(.container) {
+        flex: 1;
+        display: flex;
+
+        .wrapper {
+            flex: 1;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px 48px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+
+            /* ===== Табы тем ===== */
+            .tabs {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 32px;
+
+                button {
+                    background: rgba(255, 255, 255, 0.6);
+                    border-radius: 18px;
+                    padding: 10px 18px;
+                    font-weight: 800;
+                    border: none;
+                    cursor: pointer;
+
+                    &:disabled {
+                        opacity: 0.4;
+                        cursor: not-allowed;
+                    }
+                }
+
+                .active {
+                    background: rgba(43, 117, 192, 0.85);
+                    color: #fff;
+                }
+
+                .done {
+                    /* Можно добавить визуальный стиль для пройденных тем */
+                }
+            }
+
+            /* ===== Прогресс ===== */
+            .progress {
+                margin-bottom: 24px;
+
+                &Info {
+                    font-size: 14px;
+                    font-weight: 800;
+                    color: #104386;
+                    margin-bottom: 8px;
+                }
+
+                &Bar {
+                    height: 8px;
+                    background: rgba(16, 67, 134, 0.15);
+                    border-radius: 8px;
+                    overflow: hidden;
+
+                    .progressFill {
+                        height: 100%;
+                        background: linear-gradient(
+                                90deg,
+                                rgba(43, 117, 192, 0.85),
+                                rgba(88, 160, 235, 0.85)
+                        );
+                        border-radius: 8px;
+                        transition: width 0.5s ease;
+                        width: 0;
+                    }
+                }
+            }
+
+            /* ===== Контент темы ===== */
+            .content {
+                flex: 1;
+                max-width: 760px;
+                margin: 32px auto 0;
+                width: 100%;
+                font-size: 16px;
+                line-height: 1.7;
+                color: #104386;
+
+                h2 {
+                    font-family: 'Montserrat Alternates', sans-serif;
+                    font-size: 24px;
+                    margin-bottom: 16px;
+                }
+
+                p {
+                    margin-bottom: 14px;
+                    line-height: 1.7;
+                    text-align: justify;
+                }
+
+                .image {
+                    display: block;
+                    max-width: 100%;
+                    border-radius: 16px;
+                    margin: 24px auto;
+                }
+
+                .empty {
+                    text-align: center;
+                    font-style: italic;
+                    color: #667085;
+                }
+            }
+
+            /* ===== Навигация ===== */
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 32px;
+
+                button {
+                    background: rgba(43, 117, 192, 0.85);
+                    color: white;
+                    border-radius: 22px;
+                    padding: 0 36px;
+                    line-height: 44px;
+                    font-weight: 900;
+                    border: none;
+
+                    &:disabled {
+                        opacity: 0.5;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+}

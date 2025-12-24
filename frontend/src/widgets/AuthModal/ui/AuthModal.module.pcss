@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900&family=Montserrat+Alternates:wght@800;900&display=swap');
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+            -45deg,
+            rgba(129, 198, 255, 0.35),
+            rgba(229, 242, 255, 0.35)
+    );
+    backdrop-filter: blur(14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    width: 420px;
+    padding: 32px;
+    border-radius: 36px;
+
+    background: linear-gradient(
+            -45deg,
+            rgba(129, 198, 255, 0.75),
+            rgba(229, 242, 255, 0.9)
+    );
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+            0 20px 45px rgba(0, 0, 0, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+.modal h2 {
+    text-align: center;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 28px;
+    color: #112d48;
+}
+
+/* INPUTS */
+.modal input {
+    height: 54px;
+    padding: 0 54px 0 20px;
+    border-radius: 16px;
+    border: none;
+
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+
+    font-size: 16px;
+    font-weight: 800;
+    color: #104386;
+    outline: none;
+
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal input::placeholder {
+    color: rgba(16, 67, 134, 0.6);
+}
+
+/* ERROR INPUT */
+.inputError {
+    box-shadow:
+            0 0 0 2px rgba(208, 52, 44, 0.75),
+            inset 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* PASSWORD */
+.passwordWrapper {
+    position: relative;
+}
+
+.passwordWrapper input {
+    width: 100%;
+    padding: 0 50px 0 20px; /* чтобы текст не накладывался на мартышку */
+    height: 54px;
+    border-radius: 16px;
+    border: none;
+    background: rgba(255,255,255,0.7);
+    font-size: 16px;
+    font-weight: 800;
+    color: #104386;
+    outline: none;
+}
+
+.monkey {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* BUTTON */
+.modal button {
+    height: 56px;
+    border-radius: 20px;
+    border: none;
+
+    background: rgba(43, 117, 192, 0.85);
+    backdrop-filter: blur(6px);
+
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.modal button:hover {
+    background: rgba(43, 117, 192, 1);
+    transform: translateY(-1px);
+}
+
+/* ERROR TEXT */
+.error {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #c62828;
+}
+
+/* SWITCH */
+.switch {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #104386;
+}
+
+.switch span {
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: #2b75c0;
+    cursor: pointer;
+    margin-left: 6px;
+}
+
+.switch span:hover {
+    text-decoration: underline;
+}

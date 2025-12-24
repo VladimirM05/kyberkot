@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@900&family=Montserrat:wght@700;800;900&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.course {
+    background: linear-gradient(
+            -45deg,
+            rgba(129, 198, 255, 0.35),
+            rgba(229, 242, 255, 0.35)
+    );
+    backdrop-filter: blur(10px);
+    font-family: 'Montserrat', sans-serif;
+    color: #112d48;
+    padding-top: 64px;
+    min-height: 100vh; /* минимум экрана */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 260px;
+    gap: 48px;
+    padding: 24px 0;
+    align-items: start; /* колонки растягиваются под контент */
+}
+
+.left, .content, .right {
+    display: flex;
+    flex-direction: column;
+}
+
+.left {
+    gap: 20px;
+}
+
+.title {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: #112d48;
+    line-height: 1.2;
+}
+
+.progress {
+    font-size: 13px;
+    color: #104386;
+}
+
+.progressBar {
+    height: 6px;
+    border-radius: 6px;
+    background: rgba(16, 67, 134, 0.15);
+}
+
+.start {
+    background-color: rgba(43, 117, 192, 0.85);
+    color: #ffffff;
+    font-weight: 900;
+    padding: 0 40px;
+    line-height: 44px;
+    border-radius: 22px;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(5px);
+    white-space: nowrap;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.menu button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #2b75c0;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.active {
+    color: #112d48;
+    text-decoration: underline;
+}
+
+.content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #104386;
+}
+
+.content h2 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #112d48;
+    margin-bottom: 12px;
+}
+
+.content h3 {
+    font-size: 18px;
+    font-weight: 900;
+    color: #112d48;
+    margin-top: 24px;
+}
+
+.content ul {
+    padding-left: 18px;
+}
+
+.right {
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.card h4 {
+    font-weight: 900;
+    color: #112d48;
+    margin-bottom: 6px;
+}
+
+.course-description {
+    text-align: justify;
+}

@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { Preview } from '../../widgets/Preview/Preview';
-import { Courses } from '../../widgets/Courses';
+import { PopularCourses } from '../../widgets/PopularCourses';
 
 export const Main: FC = () => {
 	return (
 		<>
 			<Preview />
-			<Courses />
+			<PopularCourses />
 		</>
 	);
 };
